@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Font Viewer</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for the UI initial look (optional, but using system fonts for speed first) -->
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="app-header">
+            <div class="logo-area">
+                <h1>Font Viewer</h1>
+                <p class="subtitle">Your Local Fonts, Reimagined.</p>
+            </div>
+
+            <div class="controls-area">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search fonts (e.g. Arial)...">
+                </div>
+                <div class="preview-box">
+                    <input type="text" id="previewInput" placeholder="Type something to preview...">
+                </div>
+                <div class="filters">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="japaneseOnlyToggle">
+                        <span class="slider"></span>
+                        <span class="label-text">日本語対応のみ</span>
+                    </label>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main>
+            <div id="fontGrid" class="font-grid">
+                <!-- Font cards will be injected here by JS -->
+                <div class="loading-state">
+                    <p>ボタンを押してフォントを読み込むぜ！</p>
+                    <button id="loadFontsBtn" class="action-btn">Load Local Fonts</button>
+                    <br><br>
+                    <small>※ブラウザのポップアップが出たら「許可」してくれよな！</small>
+                </div>
+            </div>
+        </main>
+
+        <!-- Font Details Modal -->
+        <div id="detailsModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn" id="closeModal">&times;</span>
+                <h2 id="modalFontName">Font Name</h2>
+                <div class="modal-actions">
+                    <button id="copyNameBtn" class="action-btn">Copy Name</button>
+                    <button id="useAsAppFontBtn" class="action-btn secondary">Use for App UI</button>
+                </div>
+                <div class="modal-preview-area">
+                    <p id="modalSampleText" class="sample-text">
+                        あいうえお かきくけこ<br>
+                        ABCDEFGHIJKLM<br>
+                        1234567890
+                    </p>
+                </div>
+                <div class="font-metadata">
+                    <p><strong>Full Name:</strong> <span id="modalFullName">-</span></p>
+                    <p><strong>Postscript Name:</strong> <span id="modalPostscriptName">-</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
